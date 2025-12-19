@@ -1,4 +1,7 @@
-require('dotenv').config();
+// Load dotenv only if not in Vercel (Vercel uses dashboard env vars)
+if (!process.env.VERCEL) {
+    require('dotenv').config();
+}
 const express = require('express');
 const cors = require('cors');
 const connectDB = require('./config/db');
