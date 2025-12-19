@@ -1,10 +1,8 @@
-// Vercel Serverless Function Entry Point
-// This wraps the Express app for Vercel's serverless environment
+// Vercel Serverless API Handler
+// Properly wraps Express app for Vercel
 
+require('dotenv').config({ path: require('path').join(__dirname, '../server/.env') });
 const app = require('../server/index.js');
 
-// Export the Express app as a serverless function
-module.exports = (req, res) => {
-    // Handle the request with Express
-    return app(req, res);
-};
+// Export for Vercel
+module.exports = app;
